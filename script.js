@@ -49,3 +49,18 @@ function playRound(playerSelection, computerSelection) {
         }
     }
 }
+
+
+function game() {
+    let computerScore;
+    let playerScore;
+    let playerSelection;
+    let computerSelection;
+
+    playerSelection = prompt("Please choose either Rock, Paper, or Scissors: ");
+    
+    for (let i = 1; i <= 5; ++i) {
+        playRound();
+    }
+    
+}
