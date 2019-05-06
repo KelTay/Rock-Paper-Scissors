@@ -72,6 +72,11 @@ function game() {
         playerSelection = prompt("Please choose either Rock, Paper, or Scissors: ");
         roundResultMessage = playRound(playerSelection, computerSelection);
 
+        while (roundResultMessage === "Invalid choice") {
+            playerSelection = prompt("Invalid choice. Please choose either Rock, Paper, or Scissors: ");
+            roundResultMessage = playRound(playerSelection, computerSelection);
+        }
+
         console.log(roundResultMessage);
         if (roundResultMessage.charAt(0) === "C") {
             ++computerScore;
