@@ -64,6 +64,7 @@ function game() {
     let playerScore = 0;
     let playerSelection;
     let computerSelection;
+    let currentRound = 1;
 
     console.log("Rock, Paper, Scissors. Best of 5 rounds.\n");
 
@@ -86,9 +87,10 @@ function game() {
             ++playerScore;
             console.log("Computer: " + computerScore);
             console.log("Player: " + playerScore);
-        } else {
-            console.log("Invalid choice");
         }
+
+        console.log(currentRound++);
+
     }
 
     if (playerScore > computerScore) {
