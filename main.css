@@ -1,0 +1,17 @@
+body {
+    height: 500px;
+}
+
+button {
+    width: 100px;
+    height: 80px;
+    position: absolute;
+}
+
+#button-rock {
+    margin-top: 50%;
+}
+
+#button-paper {}
+
+#button-scissors {}
