@@ -17,6 +17,7 @@ function computerPlay() {
     return "scissors";
 }
 
+// Play a round of rock, paper, scissors
 function playRound(playerSelection, computerSelection) {
     let playerSelectionLowerCase = playerSelection.toLowerCase();
     const computerWinMessage = "Computer Wins!";
@@ -36,23 +37,27 @@ function playRound(playerSelection, computerSelection) {
         }
 
     } else if (playerSelectionLowerCase === "paper") {
+
         if (computerSelection  === "scissors") {
             return computerWinMessage + " Scissors beats Paper";
         } else {
             return playerWinMessage + " Paper beats Rock";
         }
+
     } else if (playerSelectionLowerCase === "scissors") { 
+
         if (computerSelection  === "rock") {
             return computerWinMessage + " Rock beats Scissors";
         } else {
             return playerWinMessage + " Scissors beats Paper";
         }
+
     } else {
         return "Invalid choice";
     }
 }
 
-
+// Run the rock, paper, scissors game
 function game() {
     let roundResultMessage;
     let computerScore = 0;
