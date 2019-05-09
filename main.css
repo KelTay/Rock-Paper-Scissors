@@ -1,7 +1,18 @@
-#div-buttons {
-    min-height: 100vh;
+#div-round {
+    float:left;
+}
+
+.score {
     display: flex;
-    align-items: flex-end;
+    justify-content: flex-end;
+}
+
+#main-message {
+    min-height: 50vh;
+}
+
+#div-buttons {
+    display: flex;
     justify-content: center;
 }
 
@@ -13,18 +24,4 @@ button {
     box-shadow: 2px 2px 5px gray;
     background-color: aliceblue;
     border-radius: 20px;
-}
-
-#div-round {
-    float:left;
-}
-
-#div-computer-score {
-    display: flex;
-    justify-content: flex-end;
-}
-
-#div-player-score {
-    display: flex;
-    justify-content: flex-end;
 }

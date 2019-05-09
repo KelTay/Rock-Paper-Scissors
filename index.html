@@ -1,25 +1,42 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <title>Rock Paper Scissors</title>
     <link rel="stylesheet" href="main.css">
 </head>
+
 <body>
     <header>
         <div id="div-round">
             <span>Round:</span>
             <span id="current-round"></span>
         </div>
-        <div id="div-computer-score">
+        <div id="div-computer-score" class="score">
             <span>Computer:</span>
             <span id="computer-score"></span>
         </div>
-        <div id="div-player-score">
+        <div id="div-player-score" class="score">
             <span>Player:</span>
             <span id="player-score"></span>
         </div>
     </header>
-    
+
+    <p id="main-message"></p>
+
+
+    <div id="div-choice">
+        <div id="div-computer-choice">
+            <span>Computer:</span>
+            <span id="computer-choice"></span>
+        </div>
+
+        <div id="div-player-choice">
+            <span>Player:</span>
+            <span id="player-choice"></span>
+        </div>
+    </div>
+
     <div id="div-buttons">
         <button id="button-rock">Rock</button>
         <button id="button-paper">Paper</button>
@@ -28,4 +45,5 @@
 
     <script src="script.js"></script>
 </body>
+
 </html>
