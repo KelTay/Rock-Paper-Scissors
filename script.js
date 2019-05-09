@@ -103,3 +103,18 @@ function game() {
     
 }
 
+// Start the game by removing the start screen
+function startGame() {
+    const startScreen = document.querySelector("#start-screen");
+    startScreen.remove();
+}
+
+
+
+
+
+
+const startButton = document.getElementById("start-screen")
+.getElementsByTagName("button");
+
+startButton[0].addEventListener("click", startGame);
