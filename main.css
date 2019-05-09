@@ -15,3 +15,16 @@ button {
     border-radius: 20px;
 }
 
+#div-round {
+    float:left;
+}
+
+#div-computer-score {
+    display: flex;
+    justify-content: flex-end;
+}
+
+#div-player-score {
+    display: flex;
+    justify-content: flex-end;
+}
