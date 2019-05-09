@@ -8,6 +8,15 @@
     margin-left: 5px;
 }
 
+#start-screen {
+    min-height: 75%;
+    min-width: 99%;
+    background: lightsalmon;
+    position: absolute;
+    text-align: center;
+    padding-top: 150px;
+}
+
 #div-round {
     float:left;
 }
@@ -18,7 +27,7 @@
 }
 
 #main-message {
-    min-height: 250px;
+    min-height: 220px;
 }
 
 #div-choice div {
