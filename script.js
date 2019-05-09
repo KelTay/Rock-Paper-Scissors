@@ -55,7 +55,8 @@ function computerPlay() {
     return "scissors";
 }
 
-// Play a round of rock, paper, scissors
+// Determines the winner for each round.
+// Return a message displaying the winner of the round.
 function playRound(playerSelection, computerSelection) {
     let playerSelectionLowerCase = playerSelection.toLowerCase();
     const computerWinMessage = "Computer Wins!";
@@ -103,8 +104,6 @@ function game() {
     let playerSelection;
     let computerSelection;
     let currentRound = 1;
-
-    console.log("Rock, Paper, Scissors. Best of 5 rounds.\n");
 
     for (let i = 1; i <= 5; ++i) {
         computerSelection = computerPlay();
@@ -181,7 +180,7 @@ function selectScissors() {
 
 // Display the round winner
 function displayWinner() {
-    
+    playRound();
     updateScoreAndRound();
 }
 
