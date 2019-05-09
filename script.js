@@ -155,7 +155,8 @@ function selectRock() {
     computerNiceText = computerNiceText.slice(0, 1).toUpperCase() + 
                       computerNiceText.slice(1);
     computerChoice.textContent = computerNiceText;
-    window.setTimeout();
+
+    window.setTimeout(displayWinner, timeout);
 }
 
 // Called when paper button is clicked
