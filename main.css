@@ -27,12 +27,16 @@
 }
 
 #main-message {
-    min-height: 220px;
+    min-height: 170px;
 }
 
 #div-choice div {
     margin-left: 20%;
     margin-bottom: 50px;
+}
+
+.choice {
+    font-size: 40px;
 }
 
 #div-buttons {

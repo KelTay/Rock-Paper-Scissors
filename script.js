@@ -27,6 +27,15 @@ const playerChoice = document.querySelector("#player-choice");
 //Get the display for computer's choice
 const computerChoice = document.querySelector("#computer-choice");
 
+// Get the current round
+const round = document.querySelector("#div-round");
+
+// Get the computer's score
+const computerScore = document.querySelector("#computer-score");
+
+// Get the player's score
+const playerScore = document.querySelector("#player-score");
+
 
 
 
@@ -141,26 +150,42 @@ function startGame() {
 // Called when rock button is clicked
 function selectRock() {
     playerChoice.textContent = "Rock";
-    computerChoice.textContent = computerPlay();
+
+    let computerNiceText = computerPlay();
+    computerNiceText = computerNiceText.slice(0, 1).toUpperCase() + 
+                      computerNiceText.slice(1);
+    computerChoice.textContent = computerNiceText;
     window.setTimeout();
 }
 
 // Called when paper button is clicked
 function selectPaper() {
     playerChoice.textContent = "Paper";
-    computerChoice.textContent = computerPlay();
+
+    let computerNiceText = computerPlay();
+    computerNiceText = computerNiceText.slice(0, 1).toUpperCase() + 
+                      computerNiceText.slice(1);
+    computerChoice.textContent = computerNiceText;
 }
 
 // Called when scissors button is clicked
 function selectScissors() {
     playerChoice.textContent = "Scissors";
-    computerChoice.textContent = computerPlay();
+
+    let computerNiceText = computerPlay();
+    computerNiceText = computerNiceText.slice(0, 1).toUpperCase() + 
+                      computerNiceText.slice(1);
+    computerChoice.textContent = computerNiceText;
 }
 
 // Display the round winner
 function displayWinner() {
+    
+    updateScoreAndRound();
 }
 
 // Set the score and advance round
 function updateScoreAndRound() {
+    
+    ++round;
 }
