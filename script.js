@@ -2,6 +2,35 @@
 // Author: Kelvin Tay
 // Date: May 1, 2019
 
+const timeout = 2000; // timeout after player makes selection.
+
+// Get the start button
+const startButton = document.getElementById("start-screen")
+.getElementsByTagName("button");
+startButton[0].addEventListener("click", startGame);
+
+// Get the rock button
+const rockButton = document.querySelector("#button-rock");
+rockButton.addEventListener("click", selectRock);
+
+// Get the paper button
+const paperButton = document.querySelector("#button-paper");
+paperButton.addEventListener("click", selectPaper);
+
+// Get the scissors button
+const scissorsButton = document.querySelector("#button-scissors");
+scissorsButton.addEventListener("click", selectScissors);
+
+// Get the display for player's choice
+const playerChoice = document.querySelector("#player-choice");
+
+//Get the display for computer's choice
+const computerChoice = document.querySelector("#computer-choice");
+
+
+
+
+
 // Generates a random selection for the computer.
 function computerPlay() {
     let random = Math.floor(Math.random() * 3) + 1;
@@ -109,12 +138,29 @@ function startGame() {
     startScreen.remove();
 }
 
+// Called when rock button is clicked
+function selectRock() {
+    playerChoice.textContent = "Rock";
+    computerChoice.textContent = computerPlay();
+    window.setTimeout();
+}
 
+// Called when paper button is clicked
+function selectPaper() {
+    playerChoice.textContent = "Paper";
+    computerChoice.textContent = computerPlay();
+}
 
+// Called when scissors button is clicked
+function selectScissors() {
+    playerChoice.textContent = "Scissors";
+    computerChoice.textContent = computerPlay();
+}
 
+// Display the round winner
+function displayWinner() {
+}
 
-
-const startButton = document.getElementById("start-screen")
-.getElementsByTagName("button");
-
-startButton[0].addEventListener("click", startGame);
+// Set the score and advance round
+function updateScoreAndRound() {
+}
