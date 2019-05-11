@@ -148,8 +148,11 @@ function startGame() {
 
 // Called when rock button is clicked
 function selectRock() {
+
+    // Display the player's choice
     playerChoice.textContent = "Rock";
 
+    // Display the computer's choice
     let computerNiceText = computerPlay();
     computerNiceText = computerNiceText.slice(0, 1).toUpperCase() + 
                       computerNiceText.slice(1);
@@ -181,7 +184,7 @@ function selectScissors() {
 // Display the round winner
 function displayWinner() {
     playRound();
-    updateScoreAndRound();
+    updateScoreAndRound(); // or game()
 }
 
 // Set the score and advance round
