@@ -96,6 +96,7 @@ function playRound(playerSelection, computerSelection) {
     }
 }
 
+/*
 // Run the rock, paper, scissors game
 function game() {
     let roundResultMessage;
@@ -139,6 +140,7 @@ function game() {
     }
     
 }
+*/
 
 // Start the game by removing the start screen
 function startGame() {
@@ -153,10 +155,7 @@ function selectRock() {
     playerChoice.textContent = "Rock";
 
     // Display the computer's choice
-    let computerNiceText = computerPlay();
-    computerNiceText = computerNiceText.slice(0, 1).toUpperCase() + 
-                      computerNiceText.slice(1);
-    computerChoice.textContent = computerNiceText;
+    displayComputerChoice();
 
     window.setTimeout(displayWinner, timeout);
 }
@@ -164,17 +163,17 @@ function selectRock() {
 // Called when paper button is clicked
 function selectPaper() {
     playerChoice.textContent = "Paper";
-
-    let computerNiceText = computerPlay();
-    computerNiceText = computerNiceText.slice(0, 1).toUpperCase() + 
-                      computerNiceText.slice(1);
-    computerChoice.textContent = computerNiceText;
+    displayComputerChoice();
 }
 
 // Called when scissors button is clicked
 function selectScissors() {
     playerChoice.textContent = "Scissors";
+    displayComputerChoice();
+}
 
+// Display the computer's choice
+function displayComputerChoice() {
     let computerNiceText = computerPlay();
     computerNiceText = computerNiceText.slice(0, 1).toUpperCase() + 
                       computerNiceText.slice(1);
