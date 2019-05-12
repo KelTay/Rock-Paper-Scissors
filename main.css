@@ -1,3 +1,7 @@
+body {
+    background-color: bisque;
+}
+
 .font-heading {
     font-size: 20px;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
@@ -27,7 +31,9 @@
 }
 
 #main-message {
-    min-height: 170px;
+    min-height: 150px;
+    text-align: center;
+    font-size: 32px;
 }
 
 #div-choice div {

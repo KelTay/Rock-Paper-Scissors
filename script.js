@@ -234,7 +234,7 @@ function updateScoreAndRound(number) {
 
     if (playerScore.textContent > computerScore.textContent) {
         mainMessage.textContent = "Game Over. You win! Congratulations!";
-    } else if (playerScore < computerScore) {
+    } else if (playerScore.textContent < computerScore.textContent) {
         mainMessage.textContent = "Game Over. Oh no! Computer has beaten you!";
     } else {
         mainMessage.textContent = "Game Over. It's a tie!";
