@@ -239,8 +239,8 @@ function updateScoreAndRound(number) {
     } else {
         mainMessage.textContent = "Game Over. It's a tie!";
     }
-
-    rockButton.removeEventListener("click", selectRock);
-    paperButton.removeEventListener("click", selectPaper);
-    scissorsButton.removeEventListener("click", selectScissors);
+    
+    rockButton.remove();
+    paperButton.remove();
+    scissorsButton.remove();
 }
