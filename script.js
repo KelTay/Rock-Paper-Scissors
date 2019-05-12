@@ -46,47 +46,49 @@ function computerPlay() {
     let random = Math.floor(Math.random() * 3) + 1;
 
     if (random === 1) {
-        return "rock";
+        return "Rock";
     }
 
     if (random === 2) {
-        return "paper";
+        return "Paper";
     }
 
-    return "scissors";
+    return "Scissors";
 }
 
 // Determines the winner for each round.
 // Return a message displaying the winner of the round.
 function playRound(playerSelection, computerSelection) {
-    let playerSelectionLowerCase = playerSelection.toLowerCase();
+    
+    let playerSelectionCapitalized = playerSelection.slice(0, 1).toUpperCase()
+                                    + playerSelection.slice(1).toLowerCase();
     const computerWinMessage = "Computer wins the round!";
     const playerWinMessage = "You win the round!"
 
-    if (playerSelectionLowerCase === computerSelection) {
+    if (playerSelectionCapitalized === computerSelection) {
 
         return "It's a tie! Player and Computer both chose "
                 + computerSelection;
                 
-    } else if (playerSelectionLowerCase === "rock") {
+    } else if (playerSelectionCapitalized === "Rock") {
         
-        if (computerSelection  === "paper") {
+        if (computerSelection  === "Paper") {
             return computerWinMessage + " Paper beats Rock";
         } else {
             return playerWinMessage + " Rock beats Scissors";
         }
 
-    } else if (playerSelectionLowerCase === "paper") {
+    } else if (playerSelectionCapitalized === "Paper") {
 
-        if (computerSelection  === "scissors") {
+        if (computerSelection  === "Scissors") {
             return computerWinMessage + " Scissors beats Paper";
         } else {
             return playerWinMessage + " Paper beats Rock";
         }
 
-    } else if (playerSelectionLowerCase === "scissors") { 
+    } else if (playerSelectionCapitalized === "Scissors") { 
 
-        if (computerSelection  === "rock") {
+        if (computerSelection  === "Rock") {
             return computerWinMessage + " Rock beats Scissors";
         } else {
             return playerWinMessage + " Scissors beats Paper";
@@ -167,6 +169,7 @@ function selectRock() {
 // Called when paper button is clicked
 function selectPaper() {
     playerChoice.textContent = "Paper";
+
     displayComputerChoice();
 }
 
@@ -178,10 +181,7 @@ function selectScissors() {
 
 // Display the computer's choice
 function displayComputerChoice() {
-    let computerNiceText = computerPlay();
-    computerNiceText = computerNiceText.slice(0, 1).toUpperCase() + 
-                      computerNiceText.slice(1);
-    computerChoice.textContent = computerNiceText;
+    computerChoice.textContent = computerPlay();
 }
 
 // Display the round winner
