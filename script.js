@@ -99,52 +99,6 @@ function playRound(playerSelection, computerSelection) {
     }
 }
 
-/*
-// Run the rock, paper, scissors game
-function game() {
-    let roundResultMessage;
-    let computerScore = 0;
-    let playerScore = 0;
-    let playerSelection;
-    let computerSelection;
-    let currentRound = 1;
-
-    for (let i = 1; i <= 5; ++i) {
-        computerSelection = computerPlay();
-        playerSelection = prompt("Please choose either Rock, Paper, or Scissors: ");
-        roundResultMessage = playRound(playerSelection, computerSelection);
-
-        while (roundResultMessage === "Invalid choice") {
-            playerSelection = prompt("Invalid choice. Please choose either Rock, Paper, or Scissors: ");
-            roundResultMessage = playRound(playerSelection, computerSelection);
-        }
-
-        console.log(roundResultMessage);
-        if (roundResultMessage.charAt(0) === "C") {
-            ++computerScore;
-            console.log("Computer: " + computerScore);
-            console.log("Player: " + playerScore);
-        } else if (roundResultMessage.charAt(0) === "Y") {
-            ++playerScore;
-            console.log("Computer: " + computerScore);
-            console.log("Player: " + playerScore);
-        }
-
-        console.log(currentRound++);
-
-    }
-
-    if (playerScore > computerScore) {
-        console.log("You win! Congratulations!");
-    } else if (playerScore < computerScore) {
-        console.log("Oh no! Computer has beaten you!");
-    } else {
-        console.log("It's a tie!");
-    }
-    
-}
-*/
-
 // Start the game by removing the start screen
 function startGame() {
     const startScreen = document.querySelector("#start-screen");
@@ -232,6 +186,12 @@ function updateScoreAndRound(number) {
         return;
     }
 
+    gameOver();
+}
+
+// Called when game finishes
+function gameOver() {
+
     if (playerScore.textContent > computerScore.textContent) {
         mainMessage.textContent = "Game Over. You win! Congratulations!";
     } else if (playerScore.textContent < computerScore.textContent) {
@@ -239,8 +199,29 @@ function updateScoreAndRound(number) {
     } else {
         mainMessage.textContent = "Game Over. It's a tie!";
     }
-    
-    rockButton.remove();
-    paperButton.remove();
-    scissorsButton.remove();
+
+    // Hide the rock and paper buttons
+    rockButton.style.display = "none";
+    paperButton.style.display = "none";
+
+    // Convert scissorsButton to a Restart button
+    scissorsButton.textContent = "Play Again?";
+    scissorsButton.removeEventListener("click", selectScissors);
+    scissorsButton.addEventListener("click", restartGame);
+}
+
+// Allows player to play again
+function restartGame() {
+    round.textContent = 0;
+    playerScore.textContent = 0;
+    computerScore.textContent = 0;
+    mainMessage.textContent = " ";
+    playerChoice.textContent = " ";
+    computerChoice.textContent = " ";
+
+    rockButton.style.display = "flex";
+    paperButton.style.display = "flex";
+    scissorsButton.removeEventListener("click", restartGame);
+    scissorsButton.addEventListener("click", selectScissors);
+    scissorsButton.textContent = "Scissors";
 }
