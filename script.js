@@ -6,7 +6,7 @@ const timeout = 1000; // timeout after player makes selection.
 
 // Get the start button
 const startButton = document.getElementById("start-screen")
-.getElementsByTagName("button");
+    .getElementsByTagName("button");
 startButton[0].addEventListener("click", startGame);
 
 // Get the rock button
@@ -59,20 +59,20 @@ function computerPlay() {
 // Determines the winner for each round.
 // Return a message displaying the winner of the round.
 function playRound(playerSelection, computerSelection) {
-    
+
     let playerSelectionCapitalized = playerSelection.slice(0, 1).toUpperCase()
-                                    + playerSelection.slice(1).toLowerCase();
-    const computerWinMessage = "Computer wins the round!";
+        + playerSelection.slice(1).toLowerCase();
+    const computerWinMessage = "Computer wins the round.";
     const playerWinMessage = "You win the round!"
 
     if (playerSelectionCapitalized === computerSelection) {
 
         return "It's a tie! Player and Computer both chose "
-                + computerSelection;
-                
+            + computerSelection;
+
     } else if (playerSelectionCapitalized === "Rock") {
-        
-        if (computerSelection  === "Paper") {
+
+        if (computerSelection === "Paper") {
             return computerWinMessage + " Paper beats Rock";
         } else {
             return playerWinMessage + " Rock beats Scissors";
@@ -80,15 +80,15 @@ function playRound(playerSelection, computerSelection) {
 
     } else if (playerSelectionCapitalized === "Paper") {
 
-        if (computerSelection  === "Scissors") {
+        if (computerSelection === "Scissors") {
             return computerWinMessage + " Scissors beats Paper";
         } else {
             return playerWinMessage + " Paper beats Rock";
         }
 
-    } else if (playerSelectionCapitalized === "Scissors") { 
+    } else if (playerSelectionCapitalized === "Scissors") {
 
-        if (computerSelection  === "Rock") {
+        if (computerSelection === "Rock") {
             return computerWinMessage + " Rock beats Scissors";
         } else {
             return playerWinMessage + " Scissors beats Paper";
@@ -168,15 +168,20 @@ function selectRock() {
 
 // Called when paper button is clicked
 function selectPaper() {
-    playerChoice.textContent = "Paper";
 
+    mainMessage.textContent = " ";
+    playerChoice.textContent = "Paper";
     displayComputerChoice();
+    window.setTimeout(displayWinner, timeout);
 }
 
 // Called when scissors button is clicked
 function selectScissors() {
+
+    mainMessage.textContent = " ";
     playerChoice.textContent = "Scissors";
     displayComputerChoice();
+    window.setTimeout(displayWinner, timeout);
 }
 
 // Display the computer's choice
@@ -187,14 +192,14 @@ function displayComputerChoice() {
 // Display the round winner
 function displayWinner() {
 
-    let winnerMessage = playRound(playerChoice.textContent, 
+    let winnerMessage = playRound(playerChoice.textContent,
         computerChoice.textContent);
     mainMessage.textContent = winnerMessage;
 
     if (winnerMessage.charAt(0) === "Y") {
-        updateScoreAndRound(1); // or game()
+        updateScoreAndRound(1); // Player wins round
     } else if (winnerMessage.charAt(0) === "C") {
-        updateScoreAndRound(2);
+        updateScoreAndRound(2); // Computer wins round
     }
 }
 
@@ -203,6 +208,30 @@ function displayWinner() {
 // "1" means the player wins round
 // "2" means the computer wins round
 function updateScoreAndRound(number) {
-    
-    ++round;
+
+    switch (number) {
+        case 1:
+            ++playerScore.textContent;
+            break;
+        case 2:
+            ++computerScore.textContent;
+            break;
+        default:
+            console.log("Error in function updateScoreAndRound "
+                + "switch statement.");
+            break;
+    }
+
+    if (round.textContent < 5) {
+        ++round.textContent;
+        return;
+    }
+
+    if (playerScore.textContent > computerScore.textContent) {
+        mainMessage.textContent = "Game Over. You win! Congratulations!";
+    } else if (playerScore < computerScore) {
+        mainMessage.textContent = "Game Over. Oh no! Computer has beaten you!";
+    } else {
+        mainMessage.textContent = "Game Over. It's a tie!";
+    }
 }
