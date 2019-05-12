@@ -28,7 +28,7 @@ const playerChoice = document.querySelector("#player-choice");
 const computerChoice = document.querySelector("#computer-choice");
 
 // Get the current round
-const round = document.querySelector("#div-round");
+const round = document.querySelector("#current-round");
 
 // Get the computer's score
 const computerScore = document.querySelector("#computer-score");
@@ -200,6 +200,8 @@ function displayWinner() {
         updateScoreAndRound(1); // Player wins round
     } else if (winnerMessage.charAt(0) === "C") {
         updateScoreAndRound(2); // Computer wins round
+    } else {
+        updateScoreAndRound(3);
     }
 }
 
@@ -215,6 +217,9 @@ function updateScoreAndRound(number) {
             break;
         case 2:
             ++computerScore.textContent;
+            break;
+        case 3:
+            // Tie
             break;
         default:
             console.log("Error in function updateScoreAndRound "
@@ -234,4 +239,8 @@ function updateScoreAndRound(number) {
     } else {
         mainMessage.textContent = "Game Over. It's a tie!";
     }
+
+    rockButton.removeEventListener("click", selectRock);
+    paperButton.removeEventListener("click", selectPaper);
+    scissorsButton.removeEventListener("click", selectScissors);
 }
