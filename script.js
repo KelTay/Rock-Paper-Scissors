@@ -2,7 +2,7 @@
 // Author: Kelvin Tay
 // Date: May 1, 2019
 
-const timeout = 2000; // timeout after player makes selection.
+const timeout = 1000; // timeout after player makes selection.
 
 // Get the start button
 const startButton = document.getElementById("start-screen")
@@ -36,7 +36,8 @@ const computerScore = document.querySelector("#computer-score");
 // Get the player's score
 const playerScore = document.querySelector("#player-score");
 
-
+// Get the main message <p> tag
+const mainMessage = document.querySelector("#main-message");
 
 
 
@@ -59,8 +60,8 @@ function computerPlay() {
 // Return a message displaying the winner of the round.
 function playRound(playerSelection, computerSelection) {
     let playerSelectionLowerCase = playerSelection.toLowerCase();
-    const computerWinMessage = "Computer Wins!";
-    const playerWinMessage = "You Win!"
+    const computerWinMessage = "Computer wins the round!";
+    const playerWinMessage = "You win the round!"
 
     if (playerSelectionLowerCase === computerSelection) {
 
@@ -151,6 +152,9 @@ function startGame() {
 // Called when rock button is clicked
 function selectRock() {
 
+    // Clear the main message display
+    mainMessage.textContent = " ";
+
     // Display the player's choice
     playerChoice.textContent = "Rock";
 
@@ -182,12 +186,23 @@ function displayComputerChoice() {
 
 // Display the round winner
 function displayWinner() {
-    playRound();
-    updateScoreAndRound(); // or game()
+
+    let winnerMessage = playRound(playerChoice.textContent, 
+        computerChoice.textContent);
+    mainMessage.textContent = winnerMessage;
+
+    if (winnerMessage.charAt(0) === "Y") {
+        updateScoreAndRound(1); // or game()
+    } else if (winnerMessage.charAt(0) === "C") {
+        updateScoreAndRound(2);
+    }
 }
 
 // Set the score and advance round
-function updateScoreAndRound() {
+// number param indicates the winner of the round
+// "1" means the player wins round
+// "2" means the computer wins round
+function updateScoreAndRound(number) {
     
     ++round;
 }
