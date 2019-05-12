@@ -2,7 +2,7 @@
 // Author: Kelvin Tay
 // Date: May 1, 2019
 
-const timeout = 1000; // timeout after player makes selection.
+const timeout = 250; // timeout after player makes selection.
 
 // Get the start button
 const startButton = document.getElementById("start-screen")
