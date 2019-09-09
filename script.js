@@ -212,7 +212,7 @@ function gameOver() {
 
 // Allows player to play again
 function restartGame() {
-    round.textContent = 0;
+    round.textContent = 1;
     playerScore.textContent = 0;
     computerScore.textContent = 0;
     mainMessage.textContent = " ";
