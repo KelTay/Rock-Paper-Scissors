@@ -19,6 +19,7 @@ body {
     position: absolute;
     text-align: center;
     padding-top: 150px;
+    padding-bottom: 150px;
 }
 
 #start-screen h1, #start-screen h2 {
